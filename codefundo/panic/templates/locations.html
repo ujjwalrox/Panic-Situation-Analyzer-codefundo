@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block content %}
+	<div class="container">
+		{% for location in locations %}
+			{{location.lng}}
+			<br>
+			{{location.lat}}
+			<br>
+			{{location.time}}
+			<br>
+			{{location.account.user.username}}
+			<br><br>
+		{% endfor %}
+	</div>
+{% endblock %}
