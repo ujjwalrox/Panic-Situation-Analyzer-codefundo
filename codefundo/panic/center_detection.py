@@ -1,7 +1,8 @@
-import time
+from datetime import timedelta
+import numpy as np
+
 from django.utils import timezone
 
-import numpy as np
 from .models import Account, Location,  PanicLocation
 
 worldMap = np.zeros((182, 362), dtype='int16')
@@ -15,7 +16,8 @@ def setValue(lat, lng):
 
     worldMap[intLat][intLng] += 1
     if (worldMap[intLat][intLng] >= PANIC_LIMIT):
-        panic_blocks += [intLat, intLng]
+        if ([intLat, intLng] not in panic_blocks):
+            panic_blocks += [intLat, intLng]
 
 
 def clearMap():
@@ -23,12 +25,19 @@ def clearMap():
         for j in range(362):
             worldMap[i][j] = 0
 
+
 def feedValue():
-    panic_locations = Location.objects.all()
-    currentTime = time.time()
+    clearMap()
+    panic_locations = PanicLocation.objects.all()
+    currentTime = timezone.now()
     for location in panic_locations:
-        print(location.time)
-        if (location.time != None and timezone.now() >= location.time):
-            print(timezone.now() - location.time)
-        else:
-            print("false")
+        if (location.time is not None and (currentTime - location.time) <= timedelta(minutes=10)):
+            setValue(location.lat, location.lng)
+
+    runModel()
+
+
+def runModel():
+    for panic in panic_blocks:
+        # create a list and pass to models:
+        pass
