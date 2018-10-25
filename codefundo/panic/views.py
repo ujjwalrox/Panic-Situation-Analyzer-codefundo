@@ -7,7 +7,7 @@ from django.contrib.auth import login, authenticate, logout
 from django.http import HttpResponse
 from django.views.decorators.csrf import csrf_exempt
 
-from .models import Location, Account, PanicLocation
+from .models import Location, Account, PanicLocation, DisasterArea
 from .forms import SignUpForm
 from .center_detection import *
 
@@ -20,10 +20,11 @@ def index(request):
 
 def map(request):
     locations = Location.objects.all()
+    disasters = DisasterArea.objects.all()
     return render(
         request,
         'map.html',
-        {'locations': locations}
+        {'locations': locations, 'disasters': disasters}
     )
 
 

@@ -28,10 +28,18 @@
 				L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
 				attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
 				}).addTo(map);
+
+				{% for disaster in disasters %}
+					var circle = L.circle([{{disaster.lat}}, {{disaster.lng}}], {
+					    color: 'red',
+					    fillColor: '#f03',
+					    fillOpacity: 0.5,
+					    radius: 50000
+					}).addTo(map);
+				{% endfor %}
+
 				{% for location in locations %}
-					L.marker([{{location.lat}}, {{location.lng}}]).addTo(map)
-					
-					.openPopup();
+					L.marker([{{location.lat}}, {{location.lng}}]).addTo(map);
 				{% endfor %}
 				</script>
 			</body>

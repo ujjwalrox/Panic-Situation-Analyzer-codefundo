@@ -34,3 +34,12 @@ class Account(models.Model):
 
     def __str__(self):
         return '{0}, {1}'.format(self.last_name, self.first_name)
+
+
+class DisasterArea(models.Model):
+
+    lat = models.DecimalField(default=0, max_digits=15, decimal_places=10)
+    lng = models.DecimalField(default=0, max_digits=15, decimal_places=10)
+
+    def __str__(self):
+        return 'Disaster at- lat:{0} lng:{1}'.format(self.lat, self.lng)
