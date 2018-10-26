@@ -8,6 +8,8 @@ django = "*"
 numpy = "*"
 pip = "*"
 pyowm = "*"
+keras = "*"
+tensorflow = "*"
 
 [dev-packages]
 
