@@ -11,6 +11,8 @@ Computational geometry algorithms are used to accurately determine the center of
 Our Android app monitors disaster events, even in the background, and then notifies users about the same. It also displays a handy map, allowing users to know their location and the center of the disaster zone.
 #### Web Interface
 The web interface allows people to see the current disaster areas over the globe. It also behaves as a registration portal.
+#### REST API
+The server provides a REST API framework, making it easier to build cross-platform applications.
 
 
 ## How it Works
@@ -35,6 +37,8 @@ Due to lack of a GPU, we couldn't create a CNN for predicting disasters. We plan
 We plan to add features to the map displayed in our Android interface to plot the route to the nearest safe location, based on the type of disaster. In particular, we plan to choose the route that has relatively high traffic on it, as opposed to the routes recommended by general map services. This is because during a disaster of large scale, it is very likely that roads that are not being used _cannot_, in fact, be used, and this reflects in the lack of any traffic on that route.
 
 In addition, we plan to create an interface for rescue services to pinpoint and locate affected people using the location data from the app.
+
+We intend to use open-source weather APIs to cross-check and confirm our disaster predictions. For instance, if our model predicts thunderstorms in a given area, we can confirm it by checking if the weather conditions of that area indicate heavy rains and overcast skies as well.
 
 
 
