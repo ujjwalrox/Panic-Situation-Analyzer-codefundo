@@ -4,15 +4,16 @@ import threading
 
 from django.utils import timezone
 
-from .models import Account, Location,  PanicLocation, DisasterArea
+from .models import Account, Location,  PanicLocation, DisasterArea, Threshold
 from .disaster_predictor import predict
 
 
 # using computational geometry algorithm to find center of clustured points
 
 worldMap = np.zeros((182, 362), dtype='int16')
-PANIC_LIMIT = 1
-PANIC_TIME = 82800
+CONSTANTS = Threshold.objects.all()[0]
+PANIC_LIMIT = CONSTANTS.panic_limit
+PANIC_TIME = CONSTANTS.panic_time
 panic_blocks = []
 user_list = []
 point_clusters = {}

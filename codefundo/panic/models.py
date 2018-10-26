@@ -45,3 +45,8 @@ class DisasterArea(models.Model):
     def __str__(self):
         return 'Disaster at- lat:{0} lng:{1}'.format(self.lat, self.lng)
 
+
+class Threshold(models.Model):
+
+    panic_time = models.IntegerField(default=0)
+    panic_limit = models.IntegerField(default=0)
