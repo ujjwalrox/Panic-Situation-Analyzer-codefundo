@@ -38,8 +38,10 @@ class Account(models.Model):
 
 class DisasterArea(models.Model):
 
-    lat = models.DecimalField(default=0, max_digits=15, decimal_places=10)
-    lng = models.DecimalField(default=0, max_digits=15, decimal_places=10)
+    lat = models.IntegerField(default=0)
+    lng = models.IntegerField(default=0)
+    disaster_type = models.CharField(max_length=100, null=True)
 
     def __str__(self):
         return 'Disaster at- lat:{0} lng:{1}'.format(self.lat, self.lng)
+

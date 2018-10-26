@@ -75,11 +75,22 @@ def api_location(request):
             account = get_object_or_404(Account, user__username=data['username'])
             lat = float(data['lat'])
             lng = float(data['lng'])
+            intLat = int(lat)
+            intLng = int(lng)
+            disaster_area = DisasterArea.objects.all().filter(lat=intLat, lng=intLng)
+
+            text = ""
+            if (len(disaster_area is not 0)):
+                text = "ALERT: possibility of " + disaster_area[0].disaster_type + " is predicted in your area."
             location = get_object_or_404(Location, account=account)
             location.lat = lat
             location.lng = lng
             location.save()
-            return HttpResponse("Server: Success")
+
+            if (text == ""):
+                return HttpResponse("Server: Success")
+            else:
+                return HttpResponse(text)
 
         except Exception as e:
             print("Server: Error " + str(e))
@@ -113,4 +124,5 @@ def api_panic_location(request):
 
 
 def map_algo(request):
-    return HttpResponse(feedValue())
+    feedValue()
+    return HttpResponse("Server: Prediction Model Started")

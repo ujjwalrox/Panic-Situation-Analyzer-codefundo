@@ -1,9 +1,12 @@
+import keras
 from keras.models import load_model
 import numpy as np
 from collections import Counter
 
 
+
 def predict(data):
+    keras.backend.clear_session()
     results = list()
     data = np.vstack(data)
     model = load_model('disaster_model.h5')
@@ -17,7 +20,7 @@ def predict(data):
         elif disaster == 1:
             results.append('earthquake')
         elif disaster == 2:
-            results.append('winter_storm')
+            results.append('storm')
         elif disaster == 3:
             results.append('thunderstorm')
         elif disaster == 4:
