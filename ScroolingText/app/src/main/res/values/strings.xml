@@ -1,0 +1,22 @@
+<resources>
+    <string name="app_name">Scrooling Text</string>
+    <string name="article_title">Prakhar Goenka</string>
+    <string name="article_subtitle"><b><i>Prakhar\'s Biography</i></b></string>
+    <string name="article_text">This article has been written in an attempt to describe Prakhar\'s multicoloured life as seen by the various members of Our Team. Prakhar is an indispensable member of Our Team. Everyone recognizes his skills and talent. He is also very kind, helpful, and joyous person.
+    \n\n
+    <b>Technical Skills</b>
+    \n\n
+    Everyone in the campus recognizes Prakhar\'s technical skills. His nickname has been set to <i>CodeGod</i>. Indeed, he is very skilled in competitive coding. Also, his room serves as the official meeting room for ATMOS club meetings.
+    \n\n
+    <b>Presidential Candidature</b>
+    \n\n
+    Prakhar is highly suited as a presidential candidate. The members of our team have been working day and night in order to promote Prakhar\'s campaign forward. We even have a facebook page for this - www.facebook.com/prakharkaadda
+    \n\n
+    <b>Social Life</b>
+    \n\n
+    Prakhar is in deep love with a girl of our campus. His feelings are immeasurable for her, and the members of our team always strive to make this relationship a success
+    \n\n
+    <b>Modi Connection</b>
+    \n\n
+    There is a strange connection between Prakhar and Modiji which needs to be inspected. Further details shall be given afterwards.</string>
+</resources>
