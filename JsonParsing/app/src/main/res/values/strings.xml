@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">JsonParsing</string>
+    <string name="buttton">Parse</string>
+    <string name="textview">TextView\n\n</string>
+    <string name="btn_send_response">Send Response</string>
+    <string name="header">Content-type</string>
+    <string name="header_2">application//json</string>
+</resources>
